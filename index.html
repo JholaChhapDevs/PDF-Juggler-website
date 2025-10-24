@@ -30,7 +30,7 @@
             <div class="tab-content active" id="downloadTab">
                 <div class="content-wrapper">
                     <div class="hero-section">
-                        <img src="references/logo.svg" alt="PDF Juggler" class="hero-logo">
+                        <img src="logo.svg" alt="PDF Juggler" class="hero-logo">
                         <p class="hero-subtitle">Multi-Tab PDF Viewer with AI Assistant</p>
                         <p class="hero-description">
                             Experience the future of PDF management with our powerful multi-tab viewer featuring 
@@ -356,11 +356,11 @@
                         <p class="changelog-subtitle">Track our journey from concept to completion</p>
                         <div class="changelog-stats">
                             <div class="stat-card">
-                                <div class="stat-number">60+</div>
+                                <div class="stat-number" id="commitCount">0</div>
                                 <div class="stat-label">Commits</div>
                             </div>
                             <div class="stat-card">
-                                <div class="stat-number">14</div>
+                                <div class="stat-number" id="prCount">0</div>
                                 <div class="stat-label">Pull Requests</div>
                             </div>
                             <div class="stat-card">
@@ -374,238 +374,8 @@
                         </div>
                     </div>
 
-                    <div class="timeline">
-                        <!-- October 11, 2025 - Beta Release -->
-                        <div class="timeline-item">
-                            <div class="timeline-marker beta"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-date">October 11, 2025</div>
-                                <h3 class="timeline-title">🎉 Beta Release - PDF Juggler</h3>
-                                <div class="timeline-commits">
-                                    <div class="commit-item">
-                                        <span class="commit-badge merge">Merge</span>
-                                        <span class="commit-msg">Merged dev branch - Beta iteration complete</span>
-                                        <span class="commit-author">@hexwhiz</span>
-                                    </div>
-                                    <div class="commit-item">
-                                        <span class="commit-badge fix">Fix</span>
-                                        <span class="commit-msg">Bug fixes and comprehensive README documentation</span>
-                                        <span class="commit-author">@hexwhiz</span>
-                                    </div>
-                                    <div class="commit-item">
-                                        <span class="commit-badge fix">Fix</span>
-                                        <span class="commit-msg">Asynchronous loading of Table of Contents</span>
-                                        <span class="commit-author">@hexwhiz</span>
-                                    </div>
-                                    <div class="commit-item">
-                                        <span class="commit-badge feature">Feature</span>
-                                        <span class="commit-msg">AI-generated Table of Content from PDF context</span>
-                                        <span class="commit-author">@kanha321</span>
-                                    </div>
-                                    <div class="commit-item">
-                                        <span class="commit-badge enhance">Enhance</span>
-                                        <span class="commit-msg">Restructured TabScreenModel for better state management</span>
-                                        <span class="commit-author">@Pawan7778</span>
-                                    </div>
-                                    <div class="commit-item">
-                                        <span class="commit-badge feature">Feature</span>
-                                        <span class="commit-msg">TTS integration complete with MaryTTS and UI controls</span>
-                                        <span class="commit-author">@hexwhiz</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- October 10-11, 2025 - Final Push -->
-                        <div class="timeline-item">
-                            <div class="timeline-marker feature"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-date">October 10-11, 2025</div>
-                                <h3 class="timeline-title">🚀 Final Feature Sprint</h3>
-                                <div class="timeline-commits">
-                                    <div class="commit-item">
-                                        <span class="commit-badge feature">Feature</span>
-                                        <span class="commit-msg">Text highlighting, dictionary, and translation features</span>
-                                        <span class="commit-author">@hexwhiz</span>
-                                    </div>
-                                    <div class="commit-item">
-                                        <span class="commit-badge enhance">UI</span>
-                                        <span class="commit-msg">Enhanced toolbar UI and fixed alignment issues</span>
-                                        <span class="commit-author">@Pawan7778</span>
-                                    </div>
-                                    <div class="commit-item">
-                                        <span class="commit-badge feature">Feature</span>
-                                        <span class="commit-msg">Page navigation controls implemented</span>
-                                        <span class="commit-author">@Pawan7778</span>
-                                    </div>
-                                    <div class="commit-item">
-                                        <span class="commit-badge feature">Feature</span>
-                                        <span class="commit-msg">Bookmark system with UI improvements</span>
-                                        <span class="commit-author">@Pawan7778</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- October 10, 2025 - AI Integration -->
-                        <div class="timeline-item">
-                            <div class="timeline-marker ai"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-date">October 10, 2025</div>
-                                <h3 class="timeline-title">🤖 AI Chat Implementation</h3>
-                                <div class="timeline-commits">
-                                    <div class="commit-item">
-                                        <span class="commit-badge feature">AI</span>
-                                        <span class="commit-msg">Integrated Gemini File API (removed base64 encoding)</span>
-                                        <span class="commit-author">@kanha321</span>
-                                    </div>
-                                    <div class="commit-item">
-                                        <span class="commit-badge feature">AI</span>
-                                        <span class="commit-msg">Support for image-based PDF documents</span>
-                                        <span class="commit-author">@kanha321</span>
-                                    </div>
-                                    <div class="commit-item">
-                                        <span class="commit-badge feature">AI</span>
-                                        <span class="commit-msg">PDF Q&A with proper context management</span>
-                                        <span class="commit-author">@kanha321</span>
-                                    </div>
-                                    <div class="commit-item">
-                                        <span class="commit-badge feature">AI</span>
-                                        <span class="commit-msg">Basic AI chat foundation</span>
-                                        <span class="commit-author">@kanha321</span>
-                                    </div>
-                                    <div class="commit-item">
-                                        <span class="commit-badge feature">Feature</span>
-                                        <span class="commit-msg">Text search functionality inside PDF</span>
-                                        <span class="commit-author">@kanha321</span>
-                                    </div>
-                                    <div class="commit-item">
-                                        <span class="commit-badge fix">Fix</span>
-                                        <span class="commit-msg">Broken search button resolved</span>
-                                        <span class="commit-author">@kanha321</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- October 8-10, 2025 - Text Selection -->
-                        <div class="timeline-item">
-                            <div class="timeline-marker core"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-date">October 8-10, 2025</div>
-                                <h3 class="timeline-title">📝 Text Selection from Scratch</h3>
-                                <div class="timeline-commits">
-                                    <div class="commit-item">
-                                        <span class="commit-badge feature">Core</span>
-                                        <span class="commit-msg">PDF text coordinate mapping implemented from ground up</span>
-                                        <span class="commit-author">@hexwhiz</span>
-                                    </div>
-                                    <div class="commit-item">
-                                        <span class="commit-badge fix">Fix</span>
-                                        <span class="commit-msg">Re-enabled zoom and pan with text selection</span>
-                                        <span class="commit-author">@hexwhiz</span>
-                                    </div>
-                                    <div class="commit-item">
-                                        <span class="commit-badge fix">Fix</span>
-                                        <span class="commit-msg">Removed text selection state retention for performance</span>
-                                        <span class="commit-author">@hexwhiz</span>
-                                    </div>
-                                    <div class="commit-item">
-                                        <span class="commit-badge feature">Feature</span>
-                                        <span class="commit-msg">Complete text selection implementation</span>
-                                        <span class="commit-author">@Pawan7778</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- October 8-9, 2025 - Advanced Features -->
-                        <div class="timeline-item">
-                            <div class="timeline-marker feature"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-date">October 8-9, 2025</div>
-                                <h3 class="timeline-title">⚙️ Advanced PDF Operations</h3>
-                                <div class="timeline-commits">
-                                    <div class="commit-item">
-                                        <span class="commit-badge feature">Feature</span>
-                                        <span class="commit-msg">High-quality adaptive PDF rendering with zoom support</span>
-                                        <span class="commit-author">@hexwhiz</span>
-                                    </div>
-                                    <div class="commit-item">
-                                        <span class="commit-badge feature">Feature</span>
-                                        <span class="commit-msg">PDF page rotation with UI controls</span>
-                                        <span class="commit-author">@hexwhiz</span>
-                                    </div>
-                                    <div class="commit-item">
-                                        <span class="commit-badge feature">Feature</span>
-                                        <span class="commit-msg">Page reordering and save functionality</span>
-                                        <span class="commit-author">@hexwhiz</span>
-                                    </div>
-                                    <div class="commit-item">
-                                        <span class="commit-badge feature">Feature</span>
-                                        <span class="commit-msg">PDF split screen mode implemented</span>
-                                        <span class="commit-author">@kanha321</span>
-                                    </div>
-                                    <div class="commit-item">
-                                        <span class="commit-badge feature">Feature</span>
-                                        <span class="commit-msg">Fullscreen toggle functionality</span>
-                                        <span class="commit-author">@Pawan7778</span>
-                                    </div>
-                                    <div class="commit-item">
-                                        <span class="commit-badge feature">Feature</span>
-                                        <span class="commit-msg">Printing options with loading UI</span>
-                                        <span class="commit-author">@Pawan7778</span>
-                                    </div>
-                                    <div class="commit-item">
-                                        <span class="commit-badge feature">Feature</span>
-                                        <span class="commit-msg">Table of Content from PDF metadata</span>
-                                        <span class="commit-author">@Pawan7778</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- October 3-6, 2025 - Foundation -->
-                        <div class="timeline-item">
-                            <div class="timeline-marker core"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-date">October 3-6, 2025</div>
-                                <h3 class="timeline-title">🏗️ Core Architecture & UI Foundation</h3>
-                                <div class="timeline-commits">
-                                    <div class="commit-item">
-                                        <span class="commit-badge feature">Core</span>
-                                        <span class="commit-msg">PDF viewer implementation complete</span>
-                                        <span class="commit-author">@kanha321</span>
-                                    </div>
-                                    <div class="commit-item">
-                                        <span class="commit-badge core">Core</span>
-                                        <span class="commit-msg">Core components: buttons, text fields, themes</span>
-                                        <span class="commit-author">@kanha321</span>
-                                    </div>
-                                    <div class="commit-item">
-                                        <span class="commit-badge core">Core</span>
-                                        <span class="commit-msg">Basic application structure scaffolding</span>
-                                        <span class="commit-author">@Pawan7778</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- September 30, 2025 - Start -->
-                        <div class="timeline-item">
-                            <div class="timeline-marker start"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-date">September 30, 2025</div>
-                                <h3 class="timeline-title">🌱 Project Inception</h3>
-                                <div class="timeline-commits">
-                                    <div class="commit-item">
-                                        <span class="commit-badge start">Init</span>
-                                        <span class="commit-msg">Initial commit - PDF Juggler project started</span>
-                                        <span class="commit-author">@kanha321</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="timeline" id="timeline">
+                        <!-- Populated dynamically -->
                     </div>
 
                     <div class="changelog-footer">
