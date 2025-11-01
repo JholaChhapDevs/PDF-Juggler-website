@@ -1,6 +1,31 @@
 // PDF Juggler - Tailwind Version
 // Team: JholaChhapDevs
 
+// Initialize glow effect on all cards
+function initializeGlowEffect() {
+    const glowCards = document.querySelectorAll('.card-glow');
+    glowCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            // Check if we're hovering a nested card-glow element
+            const isHoveringNestedCard = e.target.closest('.card-glow') !== card;
+            
+            if (!isHoveringNestedCard) {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--x', `${x}px`);
+                card.style.setProperty('--y', `${y}px`);
+            }
+        });
+        
+        // Reset glow position when mouse leaves
+        card.addEventListener('mouseleave', () => {
+            card.style.setProperty('--x', '50%');
+            card.style.setProperty('--y', '50%');
+        });
+    });
+}
+
 // Tab switching
 function switchTab(tabName) {
     const tabs = document.querySelectorAll('.tab-btn');
@@ -20,6 +45,11 @@ function switchTab(tabName) {
         content.classList.toggle('hidden', content.id !== `${tabName}Tab`);
         content.classList.toggle('active', content.id === `${tabName}Tab`);
     });
+    
+    // Re-initialize glow effects after tab switch for dynamically loaded content
+    if (window.matchMedia('(pointer: fine)').matches) {
+        setTimeout(initializeGlowEffect, 100);
+    }
 }
 
 // Download buttons
@@ -34,16 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Only enable glow effect for non-touch devices
     if (window.matchMedia('(pointer: fine)').matches) {
-        const glowCards = document.querySelectorAll('.feature-card, .card-glow');
-        glowCards.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                card.style.setProperty('--x', `${x}px`);
-                card.style.setProperty('--y', `${y}px`);
-            });
-        });
+        initializeGlowEffect();
     }
 
     // Load changelog

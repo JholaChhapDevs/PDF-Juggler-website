@@ -30,64 +30,11 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
-    <style>
-        /* Glow Effect on Cards - Only for non-touch devices */
-        @media (pointer: fine) {
-            .feature-card::before, .card-glow::before {
-                content: '';
-                position: absolute;
-                top: var(--y, 50%);
-                left: var(--x, 50%);
-                width: 300px;
-                height: 300px;
-                background: radial-gradient(circle, rgba(204, 153, 0, 0.2), transparent 70%);
-                border-radius: 50%;
-                transform: translate(-50%, -50%) scale(0);
-                opacity: 0;
-                transition: opacity 0.5s, transform 0.5s;
-                pointer-events: none;
-                z-index: 1;
-            }
-
-            .feature-card:hover::before, .card-glow:hover::before {
-                transform: translate(-50%, -50%) scale(1);
-                opacity: 1;
-            }
-
-            .feature-card::after, .card-glow::after {
-                content: '';
-                position: absolute;
-                inset: 0;
-                border-radius: inherit;
-                padding: 1px;
-                background: radial-gradient(
-                    500px circle at var(--x, 50%) var(--y, 50%),
-                    #CC9900,
-                    transparent 50%
-                );
-                -webkit-mask: 
-                    linear-gradient(#fff 0 0) content-box, 
-                    linear-gradient(#fff 0 0);
-                -webkit-mask-composite: xor;
-                mask: 
-                    linear-gradient(#fff 0 0) content-box, 
-                    linear-gradient(#fff 0 0);
-                mask-composite: exclude;
-                opacity: 0;
-                transition: opacity 0.5s;
-                pointer-events: none;
-            }
-
-            .feature-card:hover::after, .card-glow:hover::after {
-                opacity: 1;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-dark-900 text-cream font-['Inter',sans-serif]">
     <!-- Tab Bar -->
-    <nav class="bg-dark-800 border-b border-maroon-600 px-3 py-2">
+    <nav class="sticky top-0 z-50 bg-dark-800 border-b border-maroon-600 px-3 py-2 shadow-lg">
         <div class="flex gap-2 overflow-x-auto">
             <button onclick="switchTab('download')" data-tab="download" class="tab-btn active px-6 py-2 rounded-lg border border-maroon-600 bg-gold-600 text-cream text-sm font-medium whitespace-nowrap transition-all hover:bg-gold-500 hover:shadow-lg">
                 Download
@@ -155,33 +102,33 @@
             </div>
 
             <!-- Downloads -->
-            <div class="bg-dark-800 border border-maroon-600 rounded-xl sm:rounded-2xl p-6 sm:p-8 lg:p-12">
-                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-cream text-center mb-2 sm:mb-3">Download PDF Juggler</h2>
-                <p class="text-sm sm:text-base lg:text-lg text-yellow text-center mb-6 sm:mb-8 lg:mb-10">Available for Windows, macOS, and Linux</p>
-                <div class="flex flex-col lg:flex-row justify-center items-stretch gap-6">
+            <div class="card-glow bg-dark-800 border border-maroon-600 rounded-xl sm:rounded-2xl p-6 sm:p-8 lg:p-12 relative overflow-hidden">
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-cream text-center mb-2 sm:mb-3 relative z-10">Download PDF Juggler</h2>
+                <p class="text-sm sm:text-base lg:text-lg text-yellow text-center mb-6 sm:mb-8 lg:mb-10 relative z-10">Available for Windows, macOS, and Linux</p>
+                <div class="flex flex-col sm:flex-row justify-center items-stretch gap-4 sm:gap-6 relative z-10">
                     <!-- Windows Card -->
-                    <div class="card-glow flex-1 min-w-[260px] max-w-xs bg-dark-800 border border-maroon-600 rounded-xl p-6 relative overflow-hidden flex flex-col items-center">
-                        <img src="assets/Windows.svg" alt="Windows" class="w-12 h-12 mb-4">
-                        <h3 class="text-lg font-semibold text-cream mb-2">Windows</h3>
-                        <p class="text-xs text-yellow mb-4">MSI Installer • Windows 10+</p>
-                        <a href="#" class="px-5 py-2 rounded-lg bg-gold-500 text-dark-900 font-semibold text-sm shadow hover:bg-gold-600 transition-colors">Download</a>
+                    <div class="card-glow flex-1 min-w-0 sm:min-w-[220px] max-w-xs mx-auto sm:mx-0 bg-dark-700 border border-maroon-600 rounded-xl p-6 relative overflow-hidden flex flex-col items-center transition-all hover:scale-[1.02]">
+                        <img src="assets/Windows.svg" alt="Windows" class="w-12 h-12 mb-4 relative z-10">
+                        <h3 class="text-lg font-semibold text-cream mb-2 relative z-10">Windows</h3>
+                        <p class="text-xs text-yellow mb-4 relative z-10">MSI Installer • Windows 10+</p>
+                        <a href="#" class="px-5 py-2 rounded-lg bg-gold-500 text-dark-900 font-semibold text-sm shadow hover:bg-gold-600 transition-all relative z-10">Download</a>
                     </div>
                     <!-- macOS Card -->
-                    <div class="card-glow flex-1 min-w-[260px] max-w-xs bg-dark-800 border border-maroon-600 rounded-xl p-6 relative overflow-hidden flex flex-col items-center">
-                        <img src="assets/Apple.svg" alt="macOS" class="w-12 h-12 mb-4">
-                        <h3 class="text-lg font-semibold text-cream mb-2">macOS</h3>
-                        <p class="text-xs text-yellow mb-4">DMG Installer • macOS 11+</p>
-                        <a href="#" class="px-5 py-2 rounded-lg bg-gold-500 text-dark-900 font-semibold text-sm shadow hover:bg-gold-600 transition-colors">Download</a>
+                    <div class="card-glow flex-1 min-w-0 sm:min-w-[220px] max-w-xs mx-auto sm:mx-0 bg-dark-700 border border-maroon-600 rounded-xl p-6 relative overflow-hidden flex flex-col items-center transition-all hover:scale-[1.02]">
+                        <img src="assets/Apple.svg" alt="macOS" class="w-12 h-12 mb-4 relative z-10">
+                        <h3 class="text-lg font-semibold text-cream mb-2 relative z-10">macOS</h3>
+                        <p class="text-xs text-yellow mb-4 relative z-10">DMG Installer • macOS 11+</p>
+                        <a href="#" class="px-5 py-2 rounded-lg bg-gold-500 text-dark-900 font-semibold text-sm shadow hover:bg-gold-600 transition-all relative z-10">Download</a>
                     </div>
                     <!-- Linux Card -->
-                    <div class="card-glow flex-1 min-w-[260px] max-w-xs bg-dark-800 border border-maroon-600 rounded-xl p-6 relative overflow-hidden flex flex-col items-center">
-                        <img src="assets/Linux.svg" alt="Linux" class="w-12 h-12 mb-4">
-                        <h3 class="text-lg font-semibold text-cream mb-2">Linux</h3>
-                        <p class="text-xs text-yellow mb-4">DEB Package • Ubuntu/Debian</p>
-                        <a href="#" class="px-5 py-2 rounded-lg bg-gold-500 text-dark-900 font-semibold text-sm shadow hover:bg-gold-600 transition-colors">Download</a>
+                    <div class="card-glow flex-1 min-w-0 sm:min-w-[220px] max-w-xs mx-auto sm:mx-0 bg-dark-700 border border-maroon-600 rounded-xl p-6 relative overflow-hidden flex flex-col items-center transition-all hover:scale-[1.02]">
+                        <img src="assets/Linux.svg" alt="Linux" class="w-12 h-12 mb-4 relative z-10">
+                        <h3 class="text-lg font-semibold text-cream mb-2 relative z-10">Linux</h3>
+                        <p class="text-xs text-yellow mb-4 relative z-10">DEB Package • Ubuntu/Debian</p>
+                        <a href="#" class="px-5 py-2 rounded-lg bg-gold-500 text-dark-900 font-semibold text-sm shadow hover:bg-gold-600 transition-all relative z-10">Download</a>
                     </div>
                 </div>
-                <p class="text-xs text-maroon-600/80 text-center mt-6 leading-relaxed">By downloading and using PDF Juggler, you agree to the license terms and privacy statement.</p>
+                <p class="text-xs text-maroon-600/80 text-center mt-6 leading-relaxed relative z-10">By downloading and using PDF Juggler, you agree to the license terms and privacy statement.</p>
             </div>
         </div>
     </div>
@@ -209,45 +156,45 @@
                 <!-- Features -->
                 <section>
                     <h2 class="text-2xl font-bold text-gold-500 mb-6">Key Features</h2>
-                    <div class="grid sm:grid-cols-2 gap-4">
-                        <div class="flex items-start gap-4 p-4 bg-dark-800 border border-maroon-600 rounded-lg hover:scale-[1.02] hover:shadow-lg hover:shadow-gold-500/10 transition-all">
-                            <span class="text-3xl">📄</span>
-                            <div>
+                    <div class="grid sm:grid-cols-2 gap-4 sm:gap-6">
+                        <div class="card-glow flex items-start gap-4 p-4 sm:p-6 bg-dark-800 border border-maroon-600 rounded-lg relative overflow-hidden transition-all hover:scale-[1.02]">
+                            <span class="text-3xl relative z-10">📄</span>
+                            <div class="relative z-10">
                                 <strong class="text-cream">PDF Viewing & Navigation</strong>
                                 <p class="text-sm text-yellow mt-1">High-quality rendering with smooth navigation</p>
                             </div>
                         </div>
-                        <div class="flex items-start gap-4 p-4 bg-dark-800 border border-maroon-600 rounded-lg hover:scale-[1.02] hover:shadow-lg hover:shadow-gold-500/10 transition-all">
-                            <span class="text-3xl">🤖</span>
-                            <div>
+                        <div class="card-glow flex items-start gap-4 p-4 sm:p-6 bg-dark-800 border border-maroon-600 rounded-lg relative overflow-hidden transition-all hover:scale-[1.02]">
+                            <span class="text-3xl relative z-10">🤖</span>
+                            <div class="relative z-10">
                                 <strong class="text-cream">AI-Powered Analysis</strong>
                                 <p class="text-sm text-yellow mt-1">Generate ToC and summaries using Gemini AI</p>
                             </div>
                         </div>
-                        <div class="flex items-start gap-4 p-4 bg-dark-800 border border-maroon-600 rounded-lg hover:scale-[1.02] hover:shadow-lg hover:shadow-gold-500/10 transition-all">
-                            <span class="text-3xl">🔊</span>
-                            <div>
+                        <div class="card-glow flex items-start gap-4 p-4 sm:p-6 bg-dark-800 border border-maroon-600 rounded-lg relative overflow-hidden transition-all hover:scale-[1.02]">
+                            <span class="text-3xl relative z-10">🔊</span>
+                            <div class="relative z-10">
                                 <strong class="text-cream">Text-to-Speech</strong>
                                 <p class="text-sm text-yellow mt-1">MaryTTS integration for audio conversion</p>
                             </div>
                         </div>
-                        <div class="flex items-start gap-4 p-4 bg-dark-800 border border-maroon-600 rounded-lg hover:scale-[1.02] hover:shadow-lg hover:shadow-gold-500/10 transition-all">
-                            <span class="text-3xl">🔍</span>
-                            <div>
+                        <div class="card-glow flex items-start gap-4 p-4 sm:p-6 bg-dark-800 border border-maroon-600 rounded-lg relative overflow-hidden transition-all hover:scale-[1.02]">
+                            <span class="text-3xl relative z-10">🔍</span>
+                            <div class="relative z-10">
                                 <strong class="text-cream">Search & Highlight</strong>
                                 <p class="text-sm text-yellow mt-1">Advanced text search capabilities</p>
                             </div>
                         </div>
-                        <div class="flex items-start gap-4 p-4 bg-dark-800 border border-maroon-600 rounded-lg hover:scale-[1.02] hover:shadow-lg hover:shadow-gold-500/10 transition-all">
-                            <span class="text-3xl">🔖</span>
-                            <div>
+                        <div class="card-glow flex items-start gap-4 p-4 sm:p-6 bg-dark-800 border border-maroon-600 rounded-lg relative overflow-hidden transition-all hover:scale-[1.02]">
+                            <span class="text-3xl relative z-10">🔖</span>
+                            <div class="relative z-10">
                                 <strong class="text-cream">Bookmark Management</strong>
                                 <p class="text-sm text-yellow mt-1">Create and manage bookmarks</p>
                             </div>
                         </div>
-                        <div class="flex items-start gap-4 p-4 bg-dark-800 border border-maroon-600 rounded-lg hover:scale-[1.02] hover:shadow-lg hover:shadow-gold-500/10 transition-all">
-                            <span class="text-3xl">🌐</span>
-                            <div>
+                        <div class="card-glow flex items-start gap-4 p-4 sm:p-6 bg-dark-800 border border-maroon-600 rounded-lg relative overflow-hidden transition-all hover:scale-[1.02]">
+                            <span class="text-3xl relative z-10">🌐</span>
+                            <div class="relative z-10">
                                 <strong class="text-cream">Multiplatform Support</strong>
                                 <p class="text-sm text-yellow mt-1">Runs on Windows, macOS, and Linux</p>
                             </div>
@@ -260,26 +207,26 @@
                     <h2 class="text-2xl font-bold text-gold-500 mb-4">Meet the Team</h2>
                     <p class="text-yellow mb-6">JholaChhapDevs - MCA 2nd Year</p>
                     
-                    <div class="grid md:grid-cols-3 gap-6">
-                        <div class="bg-dark-800 border border-maroon-600 rounded-xl p-6 text-center hover:scale-[1.02] hover:border-gold-500 hover:shadow-xl hover:shadow-gold-500/20 transition-all">
-                            <img src="https://avatars.githubusercontent.com/u/57435219?v=4" alt="Shubham Gupta" class="w-20 h-20 rounded-full mx-auto mb-4 border-4 border-gold-500 object-cover shadow-lg">
-                            <h3 class="text-xl font-semibold text-cream mb-1">Shubham Gupta</h3>
-                            <p class="text-xs text-gold-500 font-semibold uppercase tracking-wide mb-2">Team Leader</p>
-                            <p class="text-sm text-yellow">Project architecture, AI integration, and coordination</p>
+                    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+                        <div class="card-glow bg-dark-800 border border-maroon-600 rounded-xl p-6 text-center relative overflow-hidden transition-all hover:scale-[1.02]">
+                            <img src="https://avatars.githubusercontent.com/u/57435219?v=4" alt="Shubham Gupta" class="w-20 h-20 rounded-full mx-auto mb-4 border-4 border-gold-500 object-cover shadow-lg relative z-10">
+                            <h3 class="text-xl font-semibold text-cream mb-1 relative z-10">Shubham Gupta</h3>
+                            <p class="text-xs text-gold-500 font-semibold uppercase tracking-wide mb-2 relative z-10">Team Leader</p>
+                            <p class="text-sm text-yellow relative z-10">Project architecture, AI integration, and coordination</p>
                         </div>
 
-                        <div class="bg-dark-800 border border-maroon-600 rounded-xl p-6 text-center hover:scale-[1.02] hover:border-gold-500 hover:shadow-xl hover:shadow-gold-500/20 transition-all">
-                            <img src="https://avatars.githubusercontent.com/u/73783285?v=4" alt="Pawan Kumar" class="w-20 h-20 rounded-full mx-auto mb-4 border-4 border-gold-500 object-cover shadow-lg">
-                            <h3 class="text-xl font-semibold text-cream mb-1">Pawan Kumar</h3>
-                            <p class="text-xs text-gold-500 font-semibold uppercase tracking-wide mb-2">Developer</p>
-                            <p class="text-sm text-yellow">Core PDF functionality and rendering engine</p>
+                        <div class="card-glow bg-dark-800 border border-maroon-600 rounded-xl p-6 text-center relative overflow-hidden transition-all hover:scale-[1.02]">
+                            <img src="https://avatars.githubusercontent.com/u/73783285?v=4" alt="Pawan Kumar" class="w-20 h-20 rounded-full mx-auto mb-4 border-4 border-gold-500 object-cover shadow-lg relative z-10">
+                            <h3 class="text-xl font-semibold text-cream mb-1 relative z-10">Pawan Kumar</h3>
+                            <p class="text-xs text-gold-500 font-semibold uppercase tracking-wide mb-2 relative z-10">Developer</p>
+                            <p class="text-sm text-yellow relative z-10">Core PDF functionality and rendering engine</p>
                         </div>
 
-                        <div class="bg-dark-800 border border-maroon-600 rounded-xl p-6 text-center hover:scale-[1.02] hover:border-gold-500 hover:shadow-xl hover:shadow-gold-500/20 transition-all">
-                            <img src="https://avatars.githubusercontent.com/u/148613715?v=4" alt="Sanyam Goel" class="w-20 h-20 rounded-full mx-auto mb-4 border-4 border-gold-500 object-cover shadow-lg">
-                            <h3 class="text-xl font-semibold text-cream mb-1">Sanyam Goel</h3>
-                            <p class="text-xs text-gold-500 font-semibold uppercase tracking-wide mb-2">Systems Architect</p>
-                            <p class="text-sm text-yellow">Text selection wizard & TTS integration engineer</p>
+                        <div class="card-glow bg-dark-800 border border-maroon-600 rounded-xl p-6 text-center relative overflow-hidden transition-all hover:scale-[1.02] sm:col-span-2 md:col-span-1">
+                            <img src="https://avatars.githubusercontent.com/u/148613715?v=4" alt="Sanyam Goel" class="w-20 h-20 rounded-full mx-auto mb-4 border-4 border-gold-500 object-cover shadow-lg relative z-10">
+                            <h3 class="text-xl font-semibold text-cream mb-1 relative z-10">Sanyam Goel</h3>
+                            <p class="text-xs text-gold-500 font-semibold uppercase tracking-wide mb-2 relative z-10">Systems Architect</p>
+                            <p class="text-sm text-yellow relative z-10">Text selection wizard & TTS integration engineer</p>
                         </div>
                     </div>
                 </section>
@@ -323,13 +270,40 @@
                 </section>
 
                 <!-- Contact -->
-                <section class="card-glow bg-dark-800 border border-maroon-600 rounded-xl p-8">
-                    <h2 class="text-2xl font-bold text-gold-500 mb-4">Get in Touch</h2>
-                    <p class="text-cream/90 mb-6">Have questions or feedback? We'd love to hear from you!</p>
-                    <div class="space-y-2 text-cream/90">
+                <section class="card-glow bg-dark-800 border border-maroon-600 rounded-xl p-6 sm:p-8 relative overflow-hidden">
+                    <h2 class="text-2xl font-bold text-gold-500 mb-4 relative z-10">Get in Touch</h2>
+                    <p class="text-cream/90 mb-6 relative z-10">Have questions or feedback? We'd love to hear from you!</p>
+                    
+                    <div class="space-y-3 text-cream/90 relative z-10">
                         <p><strong class="text-gold-500">Team:</strong> JholaChhapDevs</p>
                         <p><strong class="text-gold-500">Competition:</strong> Softablitz 2025</p>
                         <p><strong class="text-gold-500">Institution:</strong> MCA 2nd Year</p>
+                        
+                        <!-- Email Section -->
+                        <div class="pt-4 border-t border-gold-500/20">
+                            <p class="text-gold-500 font-semibold mb-3">Contact us:</p>
+                            <p class="text-cream mb-4">jholachhapdevs@gmail.com</p>
+                            <div class="flex items-center gap-4">
+                                <a href="mailto:jholachhapdevs@gmail.com" 
+                                   title="Open in Email Client"
+                                   class="group relative p-3 border-2 border-gold-500/50 hover:border-gold-500 rounded-lg bg-transparent hover:bg-gold-500/10 transition-all">
+                                    <svg class="w-6 h-6 text-gold-500 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                        <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                    </svg>
+                                    <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 text-xs text-yellow whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">Email Client</span>
+                                </a>
+                                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=jholachhapdevs@gmail.com" 
+                                   target="_blank" 
+                                   rel="noopener noreferrer"
+                                   title="Open in Gmail"
+                                   class="group relative p-3 border-2 border-gold-500/50 hover:border-gold-500 rounded-lg bg-transparent hover:bg-gold-500/10 transition-all">
+                                    <svg class="w-6 h-6 text-gold-500 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/>
+                                    </svg>
+                                    <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 text-xs text-yellow whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">Gmail</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </section>
             </div>
@@ -348,21 +322,21 @@
                 
                 <!-- Stats Grid -->
                 <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 max-w-4xl mx-auto">
-                    <div class="bg-gradient-to-br from-dark-800 to-gold-600/80 border border-gold-500 rounded-lg sm:rounded-xl p-4 sm:p-6 hover:scale-[1.02] transition-transform shadow-[0_0_15px_rgba(204,153,0,0.3)]">
-                        <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gold-500" id="commitCount">0</div>
-                        <div class="text-[10px] sm:text-xs text-cream uppercase tracking-wide mt-1">Commits</div>
+                    <div class="card-glow bg-dark-800 border border-maroon-600 rounded-lg sm:rounded-xl p-4 sm:p-6 relative overflow-hidden transition-all hover:scale-[1.02]">
+                        <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gold-500 relative z-10" id="commitCount">0</div>
+                        <div class="text-[10px] sm:text-xs text-cream uppercase tracking-wide mt-1 relative z-10">Commits</div>
                     </div>
-                    <div class="bg-gradient-to-br from-dark-800 to-gold-600/80 border border-gold-500 rounded-lg sm:rounded-xl p-4 sm:p-6 hover:scale-[1.02] transition-transform shadow-[0_0_15px_rgba(204,153,0,0.3)]">
-                        <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gold-500" id="prCount">0</div>
-                        <div class="text-[10px] sm:text-xs text-cream uppercase tracking-wide mt-1">Pull Requests</div>
+                    <div class="card-glow bg-dark-800 border border-maroon-600 rounded-lg sm:rounded-xl p-4 sm:p-6 relative overflow-hidden transition-all hover:scale-[1.02]">
+                        <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gold-500 relative z-10" id="prCount">0</div>
+                        <div class="text-[10px] sm:text-xs text-cream uppercase tracking-wide mt-1 relative z-10">Pull Requests</div>
                     </div>
-                    <div class="bg-gradient-to-br from-dark-800 to-gold-600/80 border border-gold-500 rounded-lg sm:rounded-xl p-4 sm:p-6 hover:scale-[1.02] transition-transform shadow-[0_0_15px_rgba(204,153,0,0.3)]">
-                        <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gold-500">10</div>
-                        <div class="text-[10px] sm:text-xs text-cream uppercase tracking-wide mt-1">Days Sprint</div>
+                    <div class="card-glow bg-dark-800 border border-maroon-600 rounded-lg sm:rounded-xl p-4 sm:p-6 relative overflow-hidden transition-all hover:scale-[1.02]">
+                        <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gold-500 relative z-10">10</div>
+                        <div class="text-[10px] sm:text-xs text-cream uppercase tracking-wide mt-1 relative z-10">Days Sprint</div>
                     </div>
-                    <div class="bg-gradient-to-br from-dark-800 to-gold-600/80 border border-gold-500 rounded-lg sm:rounded-xl p-4 sm:p-6 hover:scale-[1.02] transition-transform shadow-[0_0_15px_rgba(204,153,0,0.3)]">
-                        <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gold-500">3</div>
-                        <div class="text-[10px] sm:text-xs text-cream uppercase tracking-wide mt-1">Developers</div>
+                    <div class="card-glow bg-dark-800 border border-maroon-600 rounded-lg sm:rounded-xl p-4 sm:p-6 relative overflow-hidden transition-all hover:scale-[1.02]">
+                        <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gold-500 relative z-10">3</div>
+                        <div class="text-[10px] sm:text-xs text-cream uppercase tracking-wide mt-1 relative z-10">Developers</div>
                     </div>
                 </div>
             </div>
@@ -376,25 +350,25 @@
             <div class="max-w-6xl mx-auto">
                 <h3 class="text-xl sm:text-2xl font-semibold text-cream text-center mb-6 sm:mb-8">Development Highlights</h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-                    <div class="bg-dark-800 border border-maroon-600 rounded-xl p-6 text-center hover:scale-[1.02] hover:border-gold-500 hover:shadow-xl hover:shadow-gold-500/20 transition-all">
-                        <span class="text-3xl sm:text-4xl mb-3 block">🔥</span>
-                        <h4 class="text-base sm:text-lg font-semibold text-gold-500 mb-2">Rapid Development</h4>
-                        <p class="text-xs sm:text-sm text-yellow">Concept to beta in 10 days</p>
+                    <div class="card-glow bg-dark-800 border border-maroon-600 rounded-xl p-6 text-center relative overflow-hidden transition-all hover:scale-[1.02]">
+                        <span class="text-3xl sm:text-4xl mb-3 block relative z-10">🔥</span>
+                        <h4 class="text-base sm:text-lg font-semibold text-gold-500 mb-2 relative z-10">Rapid Development</h4>
+                        <p class="text-xs sm:text-sm text-yellow relative z-10">Concept to beta in 10 days</p>
                     </div>
-                    <div class="bg-dark-800 border border-maroon-600 rounded-xl p-6 text-center hover:scale-[1.02] hover:border-gold-500 hover:shadow-xl hover:shadow-gold-500/20 transition-all">
-                        <span class="text-3xl sm:text-4xl mb-3 block">🤝</span>
-                        <h4 class="text-base sm:text-lg font-semibold text-gold-500 mb-2">Team Collaboration</h4>
-                        <p class="text-xs sm:text-sm text-yellow">Seamless teamwork</p>
+                    <div class="card-glow bg-dark-800 border border-maroon-600 rounded-xl p-6 text-center relative overflow-hidden transition-all hover:scale-[1.02]">
+                        <span class="text-3xl sm:text-4xl mb-3 block relative z-10">🤝</span>
+                        <h4 class="text-base sm:text-lg font-semibold text-gold-500 mb-2 relative z-10">Team Collaboration</h4>
+                        <p class="text-xs sm:text-sm text-yellow relative z-10">Seamless teamwork</p>
                     </div>
-                    <div class="bg-dark-800 border border-maroon-600 rounded-xl p-6 text-center hover:scale-[1.02] hover:border-gold-500 hover:shadow-xl hover:shadow-gold-500/20 transition-all">
-                        <span class="text-3xl sm:text-4xl mb-3 block">🧠</span>
-                        <h4 class="text-base sm:text-lg font-semibold text-gold-500 mb-2">AI Innovation</h4>
-                        <p class="text-xs sm:text-sm text-yellow">Gemini API integration</p>
+                    <div class="card-glow bg-dark-800 border border-maroon-600 rounded-xl p-6 text-center relative overflow-hidden transition-all hover:scale-[1.02]">
+                        <span class="text-3xl sm:text-4xl mb-3 block relative z-10">🧠</span>
+                        <h4 class="text-base sm:text-lg font-semibold text-gold-500 mb-2 relative z-10">AI Innovation</h4>
+                        <p class="text-xs sm:text-sm text-yellow relative z-10">Gemini API integration</p>
                     </div>
-                    <div class="bg-dark-800 border border-maroon-600 rounded-xl p-6 text-center hover:scale-[1.02] hover:border-gold-500 hover:shadow-xl hover:shadow-gold-500/20 transition-all">
-                        <span class="text-3xl sm:text-4xl mb-3 block">⚡</span>
-                        <h4 class="text-base sm:text-lg font-semibold text-gold-500 mb-2">Performance Focus</h4>
-                        <p class="text-xs sm:text-sm text-yellow">High-quality rendering</p>
+                    <div class="card-glow bg-dark-800 border border-maroon-600 rounded-xl p-6 text-center relative overflow-hidden transition-all hover:scale-[1.02]">
+                        <span class="text-3xl sm:text-4xl mb-3 block relative z-10">⚡</span>
+                        <h4 class="text-base sm:text-lg font-semibold text-gold-500 mb-2 relative z-10">Performance Focus</h4>
+                        <p class="text-xs sm:text-sm text-yellow relative z-10">High-quality rendering</p>
                     </div>
                 </div>
             </div>
